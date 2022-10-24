@@ -5,9 +5,9 @@ on:
   
 env:
   ACR_NAME: ${{ secrets.ACR_NAME }}
-  image_name: pibo
+  image_name: api-openliberty
   #tag: ${{ github.sha }}
-  tag: poc
+  tag: 9080
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,5 +26,4 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          cd Bot
           az acr build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.image_name }}:${{ env.tag }} -r ${{ env.ACR_NAME }} .
