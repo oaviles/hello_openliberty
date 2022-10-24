@@ -1,0 +1,19 @@
+on: workflow_dispatch
+name: 5 Udpate AKS with ACR
+jobs:
+  update-aks:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@main
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Udpate AKS with ACR
+      uses: Azure/cli@v1
+      with:
+        inlineScript: |
+          az aks update -g ${{ secrets.AZURE_RG }} -n ${{ secrets.CLUSTER_NAME }} --attach-acr ${{ secrets.ACR_NAME }}
