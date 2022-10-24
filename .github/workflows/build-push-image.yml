@@ -1,0 +1,30 @@
+name: 3 Build and Push Image
+
+on:
+  workflow_dispatch:
+  
+env:
+  ACR_NAME: ${{ secrets.ACR_NAME }}
+  image_name: pibo
+  #tag: ${{ github.sha }}
+  tag: poc
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+
+  build-push-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Build and Push Image
+      uses: Azure/cli@v1
+      with:
+        inlineScript: |
+          cd Bot
+          az acr build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.image_name }}:${{ env.tag }} -r ${{ env.ACR_NAME }} .
