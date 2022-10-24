@@ -31,7 +31,7 @@ Reference Documentation: [Open Liberty / WebSphere Liberty on AKS](https://learn
 
 ## Run the Sample in Azure Kubernetes Service
 
-To run the sample using Azure Kubertenes Service run all the [Github Worflows](https://github.com/oaviles/hello_openliberty/actions) based on numeric order or create your own Github Workflow based on code provided in this repo. 
+Clone the repor and create all the necesario Github Secrets to run all the Github Workflows. To run the sample using Azure Kubertenes Service run all the [Github Worflows](https://github.com/oaviles/hello_openliberty/actions) based on numeric order or create your own Github Workflow based on code provided in this repo. 
 
 
 ### Access the application
