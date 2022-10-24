@@ -1,9 +1,10 @@
-![Open Liberty logo](https://github.com/OpenLiberty/logos/blob/main/combomark/png/OL_logo_green_on_white.png)
-
-# Open Liberty Getting Started sample
+# DevSquad Open Liberty Accelerator
 
 ## Overview
 The sample application provides a simple example of how to get started with Open Liberty. It provides a REST API that retrieves the system properties in the JVM and a web based UI for viewing them. It also uses MicroProfile Config, MicroProfile Health and MicroProfile Metrics to demonstrate how to use these specifications in an application that maybe deployed to kubernetes.
+
+Reference Documentation: [Open Liberty / WebSphere Liberty on AKS](https://learn.microsoft.com/en-us/azure/developer/java/ee/websphere-family)
+![Open Liberty logo](https://learn.microsoft.com/en-us/azure/developer/java/ee/media/websphere-family/websphere-family.svg)
 
 ## Project structure
 
@@ -28,43 +29,13 @@ The sample application provides a simple example of how to get started with Open
 - `Dockerfile` - The Dockerfile for building the sample
 - `pom.xml` - The Maven POM file
 
-## Build and Run the Sample locally
+## Run the Sample in Azure Kubernetes Service
 
-Clone the project
-
-```
-git clone https://github.com/OpenLiberty/sample-getting-started.git
-```
-
-then build and run it using Liberty dev mode:
-
-```
-mvnw liberty:dev
-```
-
-if you just want to build it run:
-
-```
-mvnw package
-```
-
-## Run the Sample in a container
-
-To run the sample using docker run:
-
-```
-docker run -p 9080:9080 icr.io/appcafe/open-liberty/samples/getting-started
-```
-
-To run the sample using podman run:
-
-```
-podman run -p 9080:9080 icr.io/appcafe/open-liberty/samples/getting-started
-```
+To run the sample using Azure Kubertenes Service run all the [Github Worflows](https://github.com/oaviles/hello_openliberty/actions) based on numeric order or create your own Github Workflow based on code provided in this repo. 
 
 
 ### Access the application
-Open a browser to http://localhost:9080
+Open a browser to http://[your on IP address] deployed by GitHub Workflows called ["Deploy API"](https://github.com/oaviles/hello_openliberty/blob/main/.github/workflows/deploy-api.yml)
 
 ![image](https://user-images.githubusercontent.com/3076261/117993383-4f34c980-b305-11eb-94b5-fa7319bc2850.png)
 
@@ -74,7 +45,7 @@ The test cases uses [JUnit 5](https://junit.org/junit5/) and
 [Maven Failsafe Plugin](https://maven.apache.org/surefire/maven-failsafe-plugin/index.html) defined 
 in [`pom.xml`](pom.xml).
 
-> Note: Sample appplication must be running on `http://localhost` before running the test cases. 
+> Note: Sample appplication must be running on `http://[your on IP address]` before running the test cases. 
 > <br>
 > See [`HealthUtilIT.java`](src/test/java/it/io/openliberty/sample/health/HealthUtilIT.java) to change 
 > the change the sample application target URL.
