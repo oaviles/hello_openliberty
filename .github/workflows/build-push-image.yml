@@ -26,4 +26,4 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          az acr import -n ${{ env.ACR_NAME }} --source icr.io/appcafe/open-liberty/samples/getting-started -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.image_name }}:${{ env.tag }}
+          az acr import -n ${{ env.ACR_NAME }} --source icr.io/appcafe/open-liberty/samples/getting-started -t ${{ env.image_name }}:${{ env.tag }}
