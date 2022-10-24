@@ -1,7 +1,7 @@
 name: 3 Install OpenLiberty to AKS
 on: workflow_dispatch
 jobs:
-  delete-microservice:
+  install-openliberty:
     runs-on: ubuntu-latest
     steps:
 
