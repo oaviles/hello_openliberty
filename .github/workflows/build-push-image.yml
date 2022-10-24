@@ -1,4 +1,4 @@
-name: 3 Import Image to ACR
+name: 4 Import Image to ACR
 
 on:
   workflow_dispatch:
